@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row my-2">
             <div class="col-8">
-                <a href="#" type="button" class="btn btn-primary">Add Movie</a>
+                <a href="movies/new" type="button" class="btn btn-primary">Add Movie</a>
             </div>
             <div class="col-4">
                 <form method="GET" action="<?php echo base_url('movies') ?>" class="d-flex">

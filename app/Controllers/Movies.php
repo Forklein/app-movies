@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\MovieModel;
 use CodeIgniter\RESTful\ResourceController;
 
-class MovieController extends ResourceController
+class Movies extends ResourceController
 {
     /**
      * Return an array of resource objects, themselves in array format
@@ -52,7 +52,7 @@ class MovieController extends ResourceController
      */
     public function new()
     {
-        //
+        return view('movies/create');
     }
 
     /**
