@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\MovieModel;
 use CodeIgniter\RESTful\ResourceController;
 
 class MovieController extends ResourceController
@@ -13,7 +14,13 @@ class MovieController extends ResourceController
      */
     public function index()
     {
-        return view('movies/index');
+        $model = model(MovieModel::class);
+        $movies = $model->get()->getResultArray();
+        // $db = \Config\Database::connect();
+        // $builder = $db->table('movies');
+        // $movies = $builder->get()->getResultArray();
+        // dd($movies);
+        return view('movies/index', compact('movies'));
     }
 
     /**

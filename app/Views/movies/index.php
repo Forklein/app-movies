@@ -19,22 +19,31 @@
         </nav>
     </header>
     <div class="container">
+        <a href="#" type="button" class="btn btn-primary my-2">Add Movie</a>
         <table class="table">
             <thead class="thead-dark">
-                <tr>
+                <tr class="text-center">
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Genre</th>
                     <th scope="col">Created at</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
+                <?php foreach ($movies as $key => $movie) : ?>
+                    <tr class="text-center">
+                        <td><?= $key + 1 ?></td>
+                        <td><?= $movie['name'] ?></td>
+                        <td><?= $movie['genre'] ?></td>
+                        <td><?= $movie['created_at'] ?></td>
+                        <td>
+                            <a href="#" type="button" class="btn btn-info">Show Movie</a>
+                            <a href="#" type="button" class="btn btn-warning">Edit Movie</a>
+                            <a href="#" type="button" class="btn btn-danger">Delete Movie</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
