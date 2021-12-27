@@ -3,11 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to CodeIgniter 4!</title>
     <meta name="description" content="The small framework with powerful features">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
     <link href="<?php echo base_url('bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <title>Movies</title>
 </head>
 
 <body class="bg-secondary">
@@ -19,7 +18,17 @@
         </nav>
     </header>
     <div class="container">
-        <a href="#" type="button" class="btn btn-primary my-2">Add Movie</a>
+        <div class="row my-2">
+            <div class="col-8">
+                <a href="#" type="button" class="btn btn-primary">Add Movie</a>
+            </div>
+            <div class="col-4">
+                <form method="GET" action="<?php echo base_url('movies') ?>" class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
+                    <button class="btn btn-outline-info" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
         <table class="table">
             <thead class="thead-dark">
                 <tr class="text-center">

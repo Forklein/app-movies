@@ -15,12 +15,19 @@ class MovieController extends ResourceController
     public function index()
     {
         $model = model(MovieModel::class);
-        $movies = $model->get()->getResultArray();
-        // $db = \Config\Database::connect();
-        // $builder = $db->table('movies');
-        // $movies = $builder->get()->getResultArray();
-        // dd($movies);
-        return view('movies/index', compact('movies'));
+        // $query = $this->uri->segment($this->uri->total_segments());
+        // if ($query) dd($query);
+        if (isset($_GET['search'])) {
+            $query = $_GET['search'];
+            dd($query);
+        } else {
+            $movies = $model->get()->getResultArray();
+            // $db = \Config\Database::connect();
+            // $builder = $db->table('movies');
+            // $movies = $builder->get()->getResultArray();
+            // dd($movies);
+            return view('movies/index', compact('movies'));
+        }
     }
 
     /**
