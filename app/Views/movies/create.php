@@ -6,7 +6,7 @@
         <h1>Create new Movies</h1>
     </div>
     <div class="card-body">
-        <form method="post" action="">
+        <form method="post" action="<?= site_url('movies') ?>">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name">
