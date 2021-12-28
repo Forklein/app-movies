@@ -68,7 +68,11 @@ class Movies extends ResourceController
      */
     public function create()
     {
-        //
+        $request = \Config\Services::request();
+        $data = $request->getPost();
+        $new_movie = new MovieModel();
+        $new_movie->insert($data);
+        return redirect('movies');
     }
 
     /**

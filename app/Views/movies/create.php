@@ -9,11 +9,11 @@
         <form method="post" action="<?= site_url('movies') ?>">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name">
+                <input type="text" class="form-control" id="name" name="name">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <input type="text" class="form-control" id="description">
+                <input type="text" class="form-control" id="description" name="description">
             </div>
             <div class="mb-3">
                 <label for="genre" class="form-label">Genre</label>
