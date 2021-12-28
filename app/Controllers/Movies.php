@@ -98,6 +98,8 @@ class Movies extends ResourceController
      */
     public function delete($id = null)
     {
-        //
+        $model = model(MovieModel::class);
+        $model->where('id', $id)->delete();
+        return redirect()->back();
     }
 }

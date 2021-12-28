@@ -32,7 +32,11 @@
                 <td>
                     <a href="<?= site_url('movies' .  '/' . $movie['id']) ?>" type="button" class="btn btn-info">Show Movie</a>
                     <a href="#" type="button" class="btn btn-warning">Edit Movie</a>
-                    <a href="#" type="button" class="btn btn-danger">Delete Movie</a>
+                    <form method="post" action="<?= site_url('movies' .  '/' . $movie['id']) ?>">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <input type="hidden" name="{csrf_token}" value="{csrf_hash}">
+                        <button type="submit" value="delete" class="btn btn-danger">Delete Movie</button>
+                    </form>
                 </td>
             </tr>
         <?php endforeach; ?>
