@@ -30,7 +30,7 @@
                 <td><?= $movie['genre'] ?></td>
                 <td><?= $movie['created_at'] ?></td>
                 <td>
-                    <a href="<?= site_url($movie['id']) ?>" type="button" class="btn btn-info">Show Movie</a>
+                    <a href="<?= site_url('movies' .  '/' . $movie['id']) ?>" type="button" class="btn btn-info">Show Movie</a>
                     <a href="#" type="button" class="btn btn-warning">Edit Movie</a>
                     <a href="#" type="button" class="btn btn-danger">Delete Movie</a>
                 </td>

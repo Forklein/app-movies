@@ -44,7 +44,11 @@ class Movies extends ResourceController
     {
         $model = model(MovieModel::class);
         $movie = $model->where('id', $id)->findAll();
-        return view('movies/show', compact('movie'));
+        if (!$movie) {
+            return view('errors/html/error_404');
+        } else {
+            return view('movies/show', compact('movie'));
+        }
     }
 
     /**
