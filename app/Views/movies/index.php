@@ -3,10 +3,10 @@
 <?= $this->section('content') ?>
 <div class="row my-2">
     <div class="col-8">
-        <a href="movies/new" type="button" class="btn btn-primary">Add Movie</a>
+        <a href="<?php echo site_url('movies/new'); ?>" type="button" class="btn btn-primary">Add Movie</a>
     </div>
     <div class="col-4">
-        <form method="GET" action="<?php echo base_url('movies') ?>" class="d-flex">
+        <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
             <button class="btn btn-outline-info" type="submit">Search</button>
         </form>
@@ -30,7 +30,7 @@
                 <td><?= $movie['genre'] ?></td>
                 <td><?= $movie['created_at'] ?></td>
                 <td>
-                    <a href="#" type="button" class="btn btn-info">Show Movie</a>
+                    <a href="<?= site_url($movie['id']) ?>" type="button" class="btn btn-info">Show Movie</a>
                     <a href="#" type="button" class="btn btn-warning">Edit Movie</a>
                     <a href="#" type="button" class="btn btn-danger">Delete Movie</a>
                 </td>

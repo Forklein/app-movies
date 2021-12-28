@@ -42,7 +42,9 @@ class Movies extends ResourceController
      */
     public function show($id = null)
     {
-        //
+        $model = model(MovieModel::class);
+        $movie = $model->where('id', $id)->findAll();
+        return view('movies/show', compact('movie'));
     }
 
     /**
