@@ -18,6 +18,10 @@
     </header>
     <main>
         <div class="container mt-3">
+            <?php $session = \Config\Services::session(); ?>
+            <?php if ($session->getFlashdata('alert')) : ?>
+                <div class="alert <?= $session->getFlashdata('alert') ?>"><?= $session->getFlashdata('message') ?></div>
+            <?php endif; ?>
             <?= $this->renderSection('content') ?>
         </div>
     </main>

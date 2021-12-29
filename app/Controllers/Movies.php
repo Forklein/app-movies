@@ -62,7 +62,7 @@ class Movies extends ResourceController
         $data = $request->getPost();
         $new_movie = new MovieModel();
         $new_movie->insert($data);
-        return redirect('movies');
+        return redirect()->route('movies')->with('alert', 'alert-success')->with('message', 'Movie created successfully');
     }
 
     /**
@@ -98,7 +98,7 @@ class Movies extends ResourceController
         ];
         $model = model(MovieModel::class);
         $model->update($id, $data_update);
-        return redirect()->route('movies');
+        return redirect()->route('movies')->with('alert', 'alert-warning')->with('message', 'Movie edited successfully');
     }
 
     /**
@@ -110,6 +110,6 @@ class Movies extends ResourceController
     {
         $model = model(MovieModel::class);
         $model->where('id', $id)->delete();
-        return redirect()->back();
+        return redirect()->back()->with('alert', 'alert-danger')->with('message', 'Movie deleted successfully');
     }
 }
