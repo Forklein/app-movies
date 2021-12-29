@@ -60,9 +60,24 @@ class Movies extends ResourceController
     {
         $request = \Config\Services::request();
         $data = $request->getPost();
-        $new_movie = new MovieModel();
-        $new_movie->insert($data);
-        return redirect()->route('movies')->with('alert', 'alert-success')->with('message', 'Movie created successfully');
+
+        helper(['form', 'url']);
+
+        $error = $this->validate([
+            'name' => 'required|min_length[5]',
+            'description' => 'required|min_length[10]',
+            'genre' => 'required'
+        ]);
+
+        if (!$error) {
+            return view('movies/create', [
+                'error'     => $this->validator
+            ]);
+        } else {
+            $new_movie = new MovieModel();
+            $new_movie->insert($data);
+            return redirect()->route('movies')->with('alert', 'alert-success')->with('message', 'Movie created successfully');
+        }
     }
 
     /**
