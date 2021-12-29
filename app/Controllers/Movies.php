@@ -14,16 +14,6 @@ class Movies extends ResourceController
      */
     public function index()
     {
-        // if ($query) dd($query);
-        /*         if (isset($_GET['search'])) {
-            $query = $_GET['search'];
-            dd($query);
-        } else {
-            $db = \Config\Database::connect();
-            $builder = $db->table('movies');
-            $movies = $builder->get()->getResultArray();
-            dd($movies);
-        } */
         $model = model(MovieModel::class);
         $request = \Config\Services::request();
         $query = $request->getGet();
@@ -100,9 +90,14 @@ class Movies extends ResourceController
     {
         $request = \Config\Services::request();
         $data = $request->getPost();
+
+        $data_update = [
+            'name' => $data['name'],
+            'description' => $data['description'],
+            'genre' => $data['genre'],
+        ];
         $model = model(MovieModel::class);
-        $movie = $model->where('id', $id)->findAll();
-        $movie->replace($data);
+        $model->update($id, $data_update);
         return redirect()->route('movies');
     }
 
