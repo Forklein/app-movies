@@ -82,7 +82,13 @@ class Movies extends ResourceController
      */
     public function edit($id = null)
     {
-        //
+        $model = model(MovieModel::class);
+        $movie = $model->where('id', $id)->findAll();
+        if (!$movie) {
+            return view('errors/html/error_404');
+        } else {
+            return view('movies/edit', compact('movie'));
+        }
     }
 
     /**
@@ -92,7 +98,12 @@ class Movies extends ResourceController
      */
     public function update($id = null)
     {
-        //
+        $request = \Config\Services::request();
+        $data = $request->getPost();
+        $model = model(MovieModel::class);
+        $movie = $model->where('id', $id)->findAll();
+        $movie->update($data);
+        return redirect('movies');
     }
 
     /**
