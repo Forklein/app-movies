@@ -26,14 +26,14 @@
         <?php foreach ($movies as $key => $movie) : ?>
             <tr>
                 <td><?= $key + 1 ?></td>
-                <td><?= $movie['name'] ?></td>
-                <td><?= $movie['genre'] ?></td>
-                <td><?= $movie['created_at'] ?></td>
+                <td><?= $movie->name ?></td>
+                <td><?= $movie->genre ?></td>
+                <td><?= $movie->created_at ?></td>
                 <td>
                     <div class="d-flex justify-content-center">
-                        <a href="<?= site_url('movies' .  '/' . $movie['id']) ?>" type="button" class="btn btn-info">Show Movie</a>
-                        <a href="<?= site_url('movies' . '/' . $movie['id'] . '/edit') ?>" type="button" class="btn btn-warning mx-2">Edit Movie</a>
-                        <form class="clear" method="post" action="<?= site_url('movies' .  '/' . $movie['id']) ?>">
+                        <a href="<?= site_url('movies' .  '/' . $movie->id) ?>" type="button" class="btn btn-info">Show Movie</a>
+                        <a href="<?= site_url('movies' . '/' . $movie->id . '/edit') ?>" type="button" class="btn btn-warning mx-2">Edit Movie</a>
+                        <form class="clear" method="post" action="<?= site_url('movies' .  '/' . $movie->id) ?>">
                             <input type="hidden" name="_method" value="DELETE" />
                             <button type="submit" class="btn btn-danger">Delete Movie</button>
                         </form>
