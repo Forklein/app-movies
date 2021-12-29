@@ -102,7 +102,7 @@ class Movies extends ResourceController
         $data = $request->getPost();
         $model = model(MovieModel::class);
         $movie = $model->where('id', $id)->findAll();
-        $movie->upddata();
+        $movie->replace($data);
         return redirect()->route('movies');
     }
 
