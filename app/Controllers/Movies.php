@@ -70,9 +70,7 @@ class Movies extends ResourceController
         ]);
 
         if (!$error) {
-            return view('movies/create', [
-                'error'     => $this->validator
-            ]);
+            return view('movies/create', ['error' => $this->validator]);
         } else {
             $new_movie = new MovieModel();
             $new_movie->insert($data);

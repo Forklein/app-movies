@@ -29,12 +29,12 @@
             <div class="mb-3">
                 <label for="genre" class="form-label">Genre</label>
                 <select name="genre" id="genre">
-                    <option value="action">Action</option>
-                    <option value="adventure">Adventure</option>
-                    <option value="comedy">Comedy</option>
-                    <option value="fantasy">Fantasy</option>
-                    <option value="horror">Horror</option>
-                    <option value="thriller">Thriller</option>
+                    <option value="Action">Action</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Thriller">Thriller</option>
                 </select>
                 <?php
                 if ($validation->getError('gemre')) {
